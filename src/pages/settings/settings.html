@@ -10,7 +10,7 @@
 
   <form [formGroup]="form" *ngIf="settingsReady">
     <ion-list *ngIf="page == 'main'">
-      <ion-item>
+      <!-- <ion-item>
         <ion-label>{{ 'SETTINGS_OPTION1' | translate }}</ion-label>
         <ion-toggle formControlName="option1"></ion-toggle>
       </ion-item>
@@ -31,15 +31,20 @@
 
       <button ion-item [navPush]="subSettings" [navParams]="profileSettings">
         {{ 'SETTINGS_PROFILE_BUTTON' | translate }}
+      </button> -->
+      
+      <button ion-item (click)="logout()">
+          <ion-icon name="exit" size="big"></ion-icon>
+        Logout
       </button>
     </ion-list>
 
-    <ion-list *ngIf="page == 'profile'">
+    <!-- <ion-list *ngIf="page == 'profile'">
       <ion-item>
         <ion-label>{{ 'SETTINGS_OPTION4' | translate }}</ion-label>
         <ion-input formControlName="option4"></ion-input>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
   </form>
 
 </ion-content>

@@ -16,8 +16,8 @@ export class SignupPage {
   // sure to add it to the type
   account: { name: string, email: string, password: string } = {
     name: 'Test Human',
-    email: 'test@example.com',
-    password: 'test'
+    email: 'GUNDAA',
+    password: '2025!'
   };
 
   // Our translated text strings

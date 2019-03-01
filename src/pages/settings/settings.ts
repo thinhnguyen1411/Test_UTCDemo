@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { FirstRunPage } from '../';
 import { Settings } from '../../providers';
-
+import { LoginPage } from '../login/login';
+import { App } from 'ionic-angular';
 /**
  * The Settings page is a simple form that syncs with a Settings provider
  * to enable the user to customize settings for the app.
@@ -37,7 +38,7 @@ export class SettingsPage {
   constructor(public navCtrl: NavController,
     public settings: Settings,
     public formBuilder: FormBuilder,
-    public navParams: NavParams,
+    public navParams: NavParams,public appCtrl: App,
     public translate: TranslateService) {
   }
 
@@ -63,6 +64,13 @@ export class SettingsPage {
     this.form.valueChanges.subscribe((v) => {
       this.settings.merge(this.form.value);
     });
+  }
+
+  logout() {
+    //this.navCtrl.setRoot(LoginPage);
+    // this.navCtrl.popToRoot();
+    // this.navCtrl.setRoot (LoginPage);
+    this.appCtrl.getRootNav().setRoot(LoginPage);
   }
 
   ionViewDidLoad() {

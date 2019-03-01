@@ -1,18 +1,46 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title>PO Details - {{ poHeader }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
+  <!-- <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
+  </div> -->
+
+  <div class="item-detail">
+    <ion-list class="po-list-md">
+      <ion-item-sliding *ngFor="let item of currentItems">
+        <button ion-item>
+            <!-- <ion-avatar item-start>
+              <img [src]="item.profilePic" />
+            </ion-avatar> -->
+            <h2 class="item-title">Item No.: {{item.Ebelp}}</h2>
+            <p><strong>Account assignment Category:</strong> {{item.Knttp}}</p>
+            <p><strong>Material:</strong> {{item.Matnr}}</p>
+            <p><strong>Short Text:</strong> {{item.Maktg}}</p>
+            <p><strong>PO quantity:</strong> {{item.Menge}}</p>
+            <p><strong>Order Unit:</strong> {{item.Meins}}</p>
+            <p><strong>Delivery date:</strong> {{item.Eindt}}</p>
+            <p><strong>Net Price:</strong> {{item.Netpr}}</p>
+          <!-- <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note> -->
+        </button>
+  
+        <!-- <ion-item-options>
+          <button ion-button color="danger" (click)="deleteItem(item)">
+            {{ 'DELETE_BUTTON' | translate }}
+          </button>
+        </ion-item-options> -->
+      </ion-item-sliding>
+    </ion-list>
+    <ion-item>
+      <button ion-button color="danger" [disabled]="isApproved" (click)="doApprove(poHeader,'2')">Reject</button>
+    <button ion-button color="primary" (click)="doApprove(poHeader,'1')">Approve</button>
+    </ion-item>
   </div>
 
-  <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <p>{{item.about}}</p>
-  </div>
+  
 </ion-content>
